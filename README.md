@@ -66,31 +66,7 @@ ssh-user@88c096c27f33:~$
 > —and if local port 65432 is not used by another process—, delete the entries for
 > `localhost:65432` in `~/.ssh/known_hosts`.
 
-Test that the tooling installed in the Dev Container (just `curl` in this case) works by curl'ing a 
-sample website. For example,
-
-```bash
-$ curl -IL example.com
-HTTP/1.1 200 OK
-Content-Encoding: gzip
-Accept-Ranges: bytes
-Age: 5040
-Cache-Control: max-age=604800
-Content-Type: text/html; charset=UTF-8
-Date: Thu, 18 Apr 2024 20:06:13 GMT
-Etag: "3147526947+gzip"
-Expires: Thu, 25 Apr 2024 20:06:13 GMT
-Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT
-Server: ECAcc (mid/871E)
-X-Cache: HIT
-Content-Length: 648
-```
-
 Stop the Dev Container by running:
 ```bash
-id="$(docker ps --filter=label=containers.dev/id=thedevcontainer --quiet)"
-if [ -n "$id" ]; then 
-  docker stop "$id"
-  docker remove "$id" 
-fi
+./scripts/down.sh 
 ```
