@@ -11,9 +11,11 @@ PoC showing how to use SSH remote development with a Dev Container
 ## Starting the SSH Dev Container
 
 Run 
+
 ```bash 
 ./scripts/up.sh
 ```
+
 to build the base image in `.devcontainer/base` and start a Dev Container with Dev Container CLI for the image in 
 `.devcontainer/dev`.
 
@@ -22,18 +24,22 @@ to build the base image in `.devcontainer/base` and start a Dev Container with D
 ### Basic check
 
 Run a basic check that the container is running and that the tooling (in this case just `curl`) was installed properly
-```
+
+```bash
 ./scripts/exec.sh curl -Is example.com
-m```
+```
 
 ### Check `ssh` connection
 
 Connect to the running container with SSH by running
+
 ```bash
 ./scripts/connect.sh 
 ```
+
 confirm that you want to connect and enter the password of ssh-user ("password123").
 You should see something like this
+
 ```bash
 Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 6.6.14-0-virt aarch64)
 
@@ -69,6 +75,8 @@ ssh-user@88c096c27f33:~$
 ## Stopping the SSH Dev Container
 
 Stop the Dev Container by running:
+
 ```bash
 ./scripts/down.sh 
 ```
+
