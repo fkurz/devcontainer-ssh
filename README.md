@@ -10,20 +10,27 @@ PoC showing how to use SSH remote development with a Dev Container
 
 ## Set up
 
+Run 
 ```bash 
-docker build \
-    --tag devcontainer-base-image:latest \
-    --file .devcontainer/devcontainer-base-image/Dockerfile \
-    .devcontainer/devcontainer-base-image
-devcontainer \
-    --workspace-folder . \
-    up \
-        --id-label=containers.dev/id=thedevcontainer
+./scripts/up.sh
 ```
+to build the base image in `.devcontainer/base` and start a Dev Container with Dev Container CLI for the image in 
+`.devcontainer/dev`.
+
+## Testing the Dev Container
+
+### Basic check
+
+Run a basic check that the container is running and that the tooling (in this case just `curl`) was installed properly
+```
+./scripts/exec.sh curl -I example.com
+```
+
+### Check `ssh` connection
 
 Connect to the running container with SSH by running
 ```bash
-ssh ssh-user@localhost -p 65432
+./scripts/connect.sh 
 ```
 confirm that you want to connect and enter the password of ssh-user ("password123").
 You should see something like this
@@ -49,11 +56,13 @@ applicable law.
 ssh-user@88c096c27f33:~$
 ```
 
-> :bulb: If you encounter the following warning
+> :information_source: If you encounter the following warning
+> 
 > > @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 > >  @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
 > > @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 > > ...
+> 
 > —and if local port 65432 is not used by another process—, delete the entries for
 > `localhost:65432` in `~/.ssh/known_hosts`.
 
