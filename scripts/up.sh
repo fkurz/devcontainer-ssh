@@ -2,9 +2,9 @@
 set -e
 
 docker build \
-    --tag devcontainer-base-image:latest \
-    --file .devcontainer/devcontainer-base-image/Dockerfile \
-    .devcontainer/devcontainer-base-image
+    --tag base:latest \
+    --file .devcontainer/base/Dockerfile \
+    .devcontainer/base
 devcontainer \
     --workspace-folder . \
     up --id-label=containers.dev/id=thedevcontainer

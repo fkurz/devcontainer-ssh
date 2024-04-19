@@ -1,10 +1,10 @@
 {
   "build": {
-    "dockerfile": "devcontainer-image/Dockerfile",
-    "imageName": "devcontainer:latest",
-    "context": "devcontainer-image"
+    "dockerfile": "dev/Dockerfile",
+    "imageName": "dev:latest",
+    "context": "dev"
   },
-  "image": "devcontainer:latest",
+  "image": "dev:latest",
   "name": "thedevcontainer",
   "appPort": [65432],
   "overrideCommand": false

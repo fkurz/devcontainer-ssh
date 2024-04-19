@@ -8,7 +8,7 @@ PoC showing how to use SSH remote development with a Dev Container
 * Docker runtime and Docker CLI (e.g. [Rancher Desktop](https://rancherdesktop.io/) on macOS)
 * Installation of [Dev Containers CLI](https://github.com/devcontainers/cli)
 
-## Set up
+## Starting the SSH Dev Container
 
 Run 
 ```bash 
@@ -23,8 +23,8 @@ to build the base image in `.devcontainer/base` and start a Dev Container with D
 
 Run a basic check that the container is running and that the tooling (in this case just `curl`) was installed properly
 ```
-./scripts/exec.sh curl -I example.com
-```
+./scripts/exec.sh curl -Is example.com
+m```
 
 ### Check `ssh` connection
 
@@ -65,6 +65,8 @@ ssh-user@88c096c27f33:~$
 > 
 > —and if local port 65432 is not used by another process—, delete the entries for
 > `localhost:65432` in `~/.ssh/known_hosts`.
+
+## Stopping the SSH Dev Container
 
 Stop the Dev Container by running:
 ```bash
