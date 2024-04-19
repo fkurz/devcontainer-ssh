@@ -2,6 +2,17 @@
 
 PoC showing how to use SSH remote development with a Dev Container
 
+## About
+
+[Dev Containers][1] provides a common specification for running containers as full-fledged development environments.
+
+Tool support is expanding but in some cases not very mature (e.g. the IntelliJ integration doesn't let you pick the directory to mount as a volume into the container).
+
+A traditional and widely supported way to connect to a remote development environment is using Secure Shell (SSH). Dev Containers—by virtue of being containers—support remote development via SSH if an SSH server is installed. This PoC shows how to do this by using a base image for dev container images that installs and runs an [OpenSSH][2] server.
+
+[1]: https://www.openssh.com/
+[2]: https://www.openssh.com/
+
 ## Prerequisites
 
 * Node installation (suggested v20+) 
